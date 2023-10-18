@@ -36,21 +36,33 @@ public class Main {
             System.out.println(" - " + item);
         }
 
+        Tosa tosa = new Tosa();
+        tosa.setPreco(45.00);
+        tosa.setDescricao("Tosa higienica");
+
+        Tosa tosa2 = new Tosa();
+        tosa2.setPreco(80.00);
+        tosa2.setDescricao("Tosa premium");
+
+        Tosa tosa3 = new Tosa();
+        tosa3.setPreco(35.00);
+        tosa3.setDescricao("Tosa spa");
+
         Agenda agenda1 = new Agenda();
         agenda1.setAnimal("Cachorro");
-        agenda1.setServico("Tosa");
+        agenda1.setServico(tosa);
         agenda1.setData("20/10/2023");
-        agenda1.setHorario("09:00");
+        agenda1.setHorario("10:00");
 
         Agenda agenda2 = new Agenda();
         agenda2.setAnimal("Gato");
-        agenda2.setServico("Consulta Veterinaria");
+        agenda2.setServico(tosa2);
         agenda2.setData("20/10/2023");
-        agenda2.setHorario("10:00");
+        agenda2.setHorario("11:00");
 
         Agenda agenda3 = new Agenda();
         agenda3.setAnimal("Ramster");
-        agenda3.setServico("Consulta Veterinaria");
+        agenda3.setServico(tosa3);
         agenda3.setData("22/10/2023");
         agenda3.setHorario("09:00");
 
@@ -58,10 +70,15 @@ public class Main {
         agendaList.add(agenda1);
         agendaList.add(agenda2);
         agendaList.add(agenda3);
+
         System.out.println( "Lista de Agendamento: ");
         for (Agenda agenda : agendaList){
             System.out.println(" - " + agenda);
         }
+
+        String agendar = agenda1.agendar(agendaList, agenda3);
+
+        System.out.println("Agendamento: "+agendar);
 
         Animal animal1 = new Animal();
         animal1.setNome("Papagaio");

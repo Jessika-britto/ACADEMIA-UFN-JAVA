@@ -1,7 +1,10 @@
+import java.util.List;
+import java.util.Objects;
+
 public class Agenda {
 
     private String animal;
-    private String servico;
+    private Servico servico;
     private String data;
     private String horario;
 
@@ -13,11 +16,11 @@ public class Agenda {
         this.animal = animal;
     }
 
-    public String getServico() {
+    public Servico getServico() {
         return servico;
     }
 
-    public void setServico(String servico) {
+    public void setServico(Servico servico) {
         this.servico = servico;
     }
 
@@ -37,11 +40,14 @@ public class Agenda {
         this.horario = horario;
     }
 
-    public String agendar(String data, String horario) {
-        if (this.data.equals(data) && this.horario != horario){
-            return this.servico;
+    public String agendar(List<Agenda> agendaList, Agenda agenda) {
+        for (Agenda ag : agendaList) {
+            if (ag.getData().equals(agenda.data) && ag.getHorario().equals(agenda.horario)) {
+                return "Agendamento indisponível, tente outro horário.";
+            }
         }
-        return "Agendamento indisponivel, tente outro horario.";
+        agendaList.add(agenda);
+        return "Agendamento Concluído";
     }
 
     @Override
