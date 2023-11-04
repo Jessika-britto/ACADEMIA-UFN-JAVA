@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #C71585;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    margin: 20px auto;
+    max-width: 320px;
+    border: 2px solid #C71585;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color:#C71585;
+    background-color: #f8a5c6;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f8a5c6;
+    color: #C71585;
+    border: none;
+    cursor: pointer;
+}
+
+#message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #FF1493;
+}
+
+
+
+
