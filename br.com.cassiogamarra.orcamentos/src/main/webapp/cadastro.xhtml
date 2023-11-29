@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+  <ui:define name="content">
+	<h:body>
+		<p:card>
+		    <f:facet name="header">
+		        <img style="width:150px" src="https://img.freepik.com/vetores-premium/logotipo-da-mascote-do-chef_138200-20.jpg?w=2000" alt=""/>
+		    </f:facet>
+		    <f:facet name="title">
+		        Cadastrar Orçamentos
+		    </f:facet> 
+		    <h:form> 
+			    <div class="ui-fluid" style="padding: 8px">
+				    <div class="p-field" style="padding: 8px">
+				        <p:outputLabel for="nomeCliente" value="Nome do cliente" />
+				        <p:inputText id="nomeCliente" value="#{orcamentoBean.nomeCliente}" required="true"/>
+				    </div>
+				    <div class="p-field" style="padding: 8px">
+				        <p:outputLabel for="qtdConvidados" value="Quantidade de convidados" />
+				        <p:inputNumber id="qtdConvidados" value="#{orcamentoBean.numConvidados}" required="true"/>
+				    </div>
+				    <div class="p-field" style="padding: 8px">
+				        <p:selectBooleanCheckbox id="indSobremesa" value="#{orcamentoBean.indSobremesa}"/>
+				        <p:outputLabel for="indSobremesa" value="Sobremesa?" style="margin-left: .5em"/>
+				    </div>
+				</div>
+		    </h:form>
+		    <f:facet name="footer">
+		        <p:commandButton icon="pi pi-save" value="Salvar" action="#{orcamentoBean.salvar(orcamentoBean)}"/>
+		        <p:button icon="pi pi-arrow-left" href="index.xhtml" value="Voltar" style="margin-left: .5em"/>
+		    </f:facet>
+		</p:card>
+	</h:body>
+  </ui:define>
+</ui:composition>
+</html> 

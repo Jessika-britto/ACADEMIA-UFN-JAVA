@@ -1,0 +1,8 @@
+
+v
+java:S1488 "aImmediately return this expression instead of assigning it to the temporary variable "orcamento".(ωΟ
+p
+java:S1104
+"ZMake sessionFactory a static final constant or non-public and provide accessors if needed.(όμÿ΅
+`
+java:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(΄Ο‚‘ωÿÿÿÿ

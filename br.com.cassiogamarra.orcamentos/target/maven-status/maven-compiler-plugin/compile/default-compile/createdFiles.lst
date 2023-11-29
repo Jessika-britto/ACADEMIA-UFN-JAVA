@@ -1,0 +1,7 @@
+br\com\cassiogamarra\orcamentos\entities\Garcons$GarconsBuilder.class
+br\com\cassiogamarra\orcamentos\entities\Orcamento$OrcamentoBuilder.class
+br\com\cassiogamarra\orcamentos\entities\Garcons.class
+br\com\cassiogamarra\orcamentos\beans\OrcamentoBean$OrcamentoBeanBuilder.class
+br\com\cassiogamarra\orcamentos\entities\Orcamento.class
+br\com\cassiogamarra\orcamentos\beans\OrcamentoBean.class
+br\com\cassiogamarra\orcamentos\repositories\OrcamentoRepository.class

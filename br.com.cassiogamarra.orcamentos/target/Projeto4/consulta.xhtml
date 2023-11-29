@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+  <ui:define name="content">
+	<h:body>
+		<p:card>
+		    <f:facet name="header">
+		        <img style="width:150px" src="https://img.freepik.com/vetores-premium/logotipo-da-mascote-do-chef_138200-20.jpg?w=2000"/>
+		    </f:facet>
+		    <f:facet name="title">
+		        Buscar orçamento
+		    </f:facet>
+		    <f:facet name="subtitle">
+		        Digite o nome do cliente e clique em "Buscar"
+		    </f:facet> 
+		    <f:facet name="footer">
+		        <p:commandButton icon="pi pi-search" value="Buscar"/>
+		        <p:button icon="pi pi-arrow-left" href="index.xhtml" value="Voltar" style="margin-left: .5em"/>
+		    </f:facet>
+		</p:card>
+	</h:body>
+  </ui:define>
+</ui:composition>
+</html> 
