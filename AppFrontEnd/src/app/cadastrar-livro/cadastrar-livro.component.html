@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">{{ id ? 'Atualizar Livro' : 'Cadastrar Livro' }}</h4>
+    <form [formGroup]="livroForm">
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input matInput type="text" formControlName="titulo" placeholder="Entre com titulo do livro">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Autor</mat-label>
+        <input matInput type="text" formControlName="autor" placeholder="Entre com autor do livro">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Genero</mat-label>
+        <input matInput type="text" formControlName="genero" placeholder="Entre com genero do livro">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Editora</mat-label>
+        <input matInput type="text" formControlName="editora" placeholder="Entre com editora do livro">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Classificação</mat-label>
+        <input matInput type="text" formControlName="classificacao" placeholder="Entre com classificação do livro">
+      </mat-form-field>
+      <div class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16" role="alert" *ngIf="mensagem">
+        <i-feather name="check-circle" class="text-success feather-base me-12"></i-feather>
+        {{ id ? 'Livro atualizado com sucesso!' : 'Livro cadastrado com sucesso!' }}
+      </div>
+      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" (click)="cadastraNovosLivros()" *ngIf="!id">Cadastrar Livro</button>
+      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" (click)="atualizarLivros()" *ngIf="id">Atualizar Livro</button>
+    </form>
+  </div>
+</div>

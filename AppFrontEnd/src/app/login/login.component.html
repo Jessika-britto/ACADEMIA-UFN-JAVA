@@ -1,0 +1,26 @@
+<mat-grid-list cols="1" rowHeight="5:2" align="center" justify="center">
+  <mat-grid-tile>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <h4 class="mb-32">Bem-vindo App</h4>
+          <span class="d-block f-w-500 d-block m-t-10 m-b-30">Novo no App?
+            <a class="text-decoration-none text-accent f-w-500 f-s-14" routerLink="/cadastrar"> Crie a sua conta
+              aqui</a>
+          </span>
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Usuário</mat-label>
+            <input matInput type="text" placeholder="Entre com usuário">
+          </mat-form-field>
+
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" placeholder="Enter your password">
+          </mat-form-field>
+
+          <button mat-raised-button class="w-100 me-8 mb-8 fw-normal" color="primary">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

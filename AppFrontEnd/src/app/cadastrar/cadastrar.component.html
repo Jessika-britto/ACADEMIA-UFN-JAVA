@@ -1,0 +1,33 @@
+<mat-grid-list cols="1" rowHeight="7:3" align="center" justify="center">
+  <mat-grid-tile>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="usuarioForm">
+          <h4 class="mb-32">Bem-vindo App</h4>
+          <span class="d-block f-w-500 d-block m-t-10 m-b-30"> Já tem uma conta?
+            <a class="text-decoration-none text-accent f-w-500 f-s-14" routerLink="/login">
+              Entrar
+            </a>
+          </span>
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" formControlName="nome" placeholder="Entre com usuário">
+          </mat-form-field>
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email" placeholder="Entre com usuário">
+          </mat-form-field>
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha" placeholder="Enter your password">
+          </mat-form-field>
+          <div class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16" role="alert" *ngIf="mensagem">
+            <i-feather name="check-circle" class="text-success feather-base me-12"></i-feather>
+            Usuário cadastrado com sucesso!
+          </div>
+          <button mat-raised-button class="w-100 me-8 mb-8 fw-normal" color="primary" (click)="cadastraNovosUsuarios()">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
