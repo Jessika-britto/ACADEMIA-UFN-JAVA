@@ -63,7 +63,7 @@ export class LivrosComponent {
   removerLivro(id: Number) {
     this.livroService.removerLivro(id).subscribe(() => {
       this._snackBar.open('Livro removido com sucesso!', 'Fechar', {
-        panelClass: ['red-snackbar'],
+        panelClass: 'success-snackbar',
         duration: 3000,
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
