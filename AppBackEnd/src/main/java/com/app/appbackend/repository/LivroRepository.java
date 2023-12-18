@@ -1,7 +1,7 @@
 package com.app.appbackend.repository;
 
-import com.app.appbackend.entity.UsuarioEntity;
+import com.app.appbackend.entity.LivroEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsuarioRepository extends JpaRepository<UsuarioEntity,Long> {
+public interface LivroRepository extends JpaRepository<LivroEntity,Long> {
 }

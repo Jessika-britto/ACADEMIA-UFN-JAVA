@@ -1,19 +1,26 @@
-package com.livros.crudlivros.entity;
+package com.app.appbackend.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
-import java.util.Date;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 
 @Data
 @Entity
-@Table(name = "livro")
-public class LivroEntity {
+@Table(name = "usuario")
+public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String titulo;
-    private String autor;
-    private Date anoPublicacao;
-    private String editora;
+    @Column(unique = true)
+    @NotBlank(message = "O nome é obrigatório")
+    private String nome;
+    @Column(unique = true)
+    @Email(message = "E-mail inválido")
+    @NotBlank(message = "O e-mail é obrigatório")
+    private String email;
+    @NotBlank(message = "A senha é obrigatória")
+    private String senha;
 }

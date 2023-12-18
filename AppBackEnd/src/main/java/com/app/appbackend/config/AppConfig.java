@@ -1,4 +1,4 @@
-package com.livros.crudlivros.config;
+package com.app.appbackend.config;
 
 
 import org.modelmapper.ModelMapper;

@@ -3,24 +3,24 @@ package com.app.appbackend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
 
 @Data
 @Entity
-@Table(name = "usuario")
-public class UsuarioEntity {
+@Table(name = "livro")
+public class LivroEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    @NotBlank(message = "O nome é obrigatório")
-    private String nome;
-    @Column(unique = true)
-    @Email(message = "E-mail inválido")
-    @NotBlank(message = "O e-mail é obrigatório")
-    private String email;
-    @NotBlank(message = "A senha é obrigatória")
-    private String senha;
+    @NotBlank(message = "O titulo é obrigatório")
+    private String titulo;
+    @NotBlank(message = "O nome do autor é obrigatório")
+    private String autor;
+    @NotBlank(message = "O genero do livro é obrigatória")
+    private String genero;
+    @NotBlank(message = "A editora do livro é obrigatória")
+    private String editora;
+    @NotBlank(message = "A classificação do livro é obrigatória")
+    private String classificacao;
 }

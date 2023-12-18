@@ -1,2 +1,11 @@
-package com.app.appbackend.model.request;public class UsuarioRequest {
+package com.app.appbackend.model.request;
+
+import lombok.Data;
+
+@Data
+public class UsuarioRequest {
+    private String nome;
+    private String email;
+    private String senha;
 }
+
