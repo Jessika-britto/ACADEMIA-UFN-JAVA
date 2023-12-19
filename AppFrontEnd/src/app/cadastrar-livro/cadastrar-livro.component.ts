@@ -2,7 +2,7 @@ import { LivroService } from './../service/livro.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Livros } from '../model/livros';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-livro',
@@ -15,7 +15,7 @@ export class CadastrarLivroComponent implements OnInit {
   mensagem: boolean = false;
   mensagemAtualizacao: boolean = false;
 
-  constructor(private fb: FormBuilder, private livroService: LivroService,private route: ActivatedRoute) {}
+  constructor(private fb: FormBuilder, private livroService: LivroService,private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -76,6 +76,7 @@ export class CadastrarLivroComponent implements OnInit {
         if (livro != null) {
           this.mensagem = true;
           this.livroForm.patchValue(livro);
+          this.router.navigate(['/livros']);
         }
       });
     }

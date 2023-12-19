@@ -25,7 +25,7 @@
             <i-feather name="check-circle" class="text-success feather-base me-12"></i-feather>
             Usuário cadastrado com sucesso!
           </div>
-          <button mat-raised-button class="w-100 me-8 mb-8 fw-normal" color="primary" (click)="cadastraNovosUsuarios()">Cadastrar</button>
+          <button mat-raised-button class="w-100 me-8 mb-8 fw-normal" color="primary" [disabled]="usuarioForm.invalid" (click)="cadastraNovosUsuarios()">Cadastrar</button>
         </form>
       </div>
     </div>

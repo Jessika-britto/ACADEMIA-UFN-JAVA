@@ -30,8 +30,8 @@
         <i-feather name="check-circle" class="text-success feather-base me-12"></i-feather>
         {{ id ? 'Livro atualizado com sucesso!' : 'Livro cadastrado com sucesso!' }}
       </div>
-      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" (click)="cadastraNovosLivros()" *ngIf="!id">Cadastrar Livro</button>
-      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" (click)="atualizarLivros()" *ngIf="id">Atualizar Livro</button>
+      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" [disabled]="livroForm.invalid" (click)="cadastraNovosLivros()" *ngIf="!id">Cadastrar Livro</button>
+      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" [disabled]="livroForm.invalid" (click)="atualizarLivros()" *ngIf="id">Atualizar Livro</button>
     </form>
   </div>
 </div>

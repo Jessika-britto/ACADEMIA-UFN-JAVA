@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuarios } from '../model/usuarios';
 import { UsuariosService } from '../service/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar',
@@ -13,7 +14,7 @@ export class CadastrarComponent {
   declare usuarioForm: FormGroup;
   mensagem: boolean = false;
 
-  constructor(private fb: FormBuilder, private usuariosService: UsuariosService) {
+  constructor(private fb: FormBuilder, private usuariosService: UsuariosService, private router: Router) {
     this.inicializarFormulario();
   }
 
@@ -29,10 +30,11 @@ export class CadastrarComponent {
     this.usuariosService.cadastrarUsuarios(this.usuarioForm.value).subscribe(
       (usuarioAdicionado: Usuarios) => {
         if(usuarioAdicionado != null) {
-          console.error('Erro ao cadastrar usuário:', usuarioAdicionado);
             this.mensagem = true;
+            setTimeout(() => {
+              this.router.navigate(['/login']);
+            }, 2000);
         }
-
         this.resetarFormulario();
       },
       (erro) => {
