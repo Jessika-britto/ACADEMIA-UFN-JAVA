@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Usuarios } from '../model/usuarios';
-import { UsuariosService } from '../service/usuarios.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { Token } from '../model/token';
 
 @Component({
   selector: 'app-cadastrar',
@@ -14,22 +14,24 @@ export class CadastrarComponent {
   declare usuarioForm: FormGroup;
   mensagem: boolean = false;
 
-  constructor(private fb: FormBuilder, private usuariosService: UsuariosService, private router: Router) {
+  constructor(private fb: FormBuilder,  private authService: AuthService, private router: Router) {
     this.inicializarFormulario();
   }
 
   inicializarFormulario() {
     this.usuarioForm = this.fb.group({
-      nome: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
   cadastraNovosUsuarios() {
-    this.usuariosService.cadastrarUsuarios(this.usuarioForm.value).subscribe(
-      (usuarioAdicionado: Usuarios) => {
-        if(usuarioAdicionado != null) {
+    this.authService.registerUsers(this.usuarioForm.value).subscribe(
+      (res: Token) => {
+        if(res != null) {
+            localStorage.setItem('token', res.token);
             this.mensagem = true;
             setTimeout(() => {
               this.router.navigate(['/login']);

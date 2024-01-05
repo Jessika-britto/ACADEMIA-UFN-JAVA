@@ -6,10 +6,18 @@
     <div class="table-responsive">
       <table mat-table [dataSource]="dataSource" class="text-nowrap w-100">
         <!-- Nome Column -->
-        <ng-container matColumnDef="nome">
+        <ng-container matColumnDef="firstName">
           <th mat-header-cell *matHeaderCellDef> Nome </th>
           <td mat-cell *matCellDef="let element">
-            <p class="mb-0 fw-medium op-5">{{element.nome}}</p>
+            <p class="mb-0 fw-medium op-5">{{element.firstName}}</p>
+          </td>
+        </ng-container>
+
+        <!-- Sobrenome Column -->
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Sobrenome </th>
+          <td mat-cell *matCellDef="let element">
+            <p class="mb-0 fw-medium op-5">{{element.lastName}}</p>
           </td>
         </ng-container>
 
@@ -22,10 +30,10 @@
         </ng-container>
 
         <!-- Senha Column -->
-        <ng-container matColumnDef="senha">
+        <ng-container matColumnDef="password">
           <th mat-header-cell *matHeaderCellDef> Senha </th>
           <td mat-cell *matCellDef="let element">
-            <p class="mb-0 fw-medium">{{element.senha}}</p>
+            <p class="mb-0 fw-medium">{{element.password ? '********' : ''}}</p>
           </td>
         </ng-container>
 

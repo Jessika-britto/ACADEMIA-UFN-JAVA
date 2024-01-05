@@ -1,7 +1,7 @@
-import { Usuarios } from './../model/usuarios';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { UsuariosService } from '../service/usuarios.service';
+import { AuthService } from '../auth.service';
+import { Users } from '../model/users';
 
 @Component({
   selector: 'app-usuarios',
@@ -9,11 +9,11 @@ import { UsuariosService } from '../service/usuarios.service';
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit {
-  displayedColumns: string[] = ['nome', 'email', 'senha'];
-  declare usuarios: Array<Usuarios>;
-  dataSource = new MatTableDataSource<Usuarios>();
+  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'password'];
+  declare usuarios: Array<Users>;
+  dataSource = new MatTableDataSource<Users>();
 
-  constructor(private usuariosService: UsuariosService) {
+  constructor(private authService: AuthService) {
 
   }
 
@@ -22,8 +22,8 @@ export class UsuariosComponent implements OnInit {
   }
 
   retornaTodosUsuariosCadastrados() {
-    this.usuariosService.usuariosCadastrados().subscribe(
-      (usuarios: Array<Usuarios>) => {
+    this.authService.listUsers().subscribe(
+      (usuarios: Array<Users>) => {
         if(usuarios != null) {
           console.error('Retorna usuários:', usuarios);
           this.dataSource.data = usuarios;

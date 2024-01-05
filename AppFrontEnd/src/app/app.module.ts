@@ -15,13 +15,14 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ComponentsModule } from './components/components.module';
 import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CommonModule } from '@angular/common';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { CadastrarLivroComponent } from './cadastrar-livro/cadastrar-livro.component';
 import { LivrosComponent } from './livros/livros.component';
 import { DialogLivrosComponent } from './livros/dialog-livros/dialog-livros.component';
+import { AuthInterceptorService } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -47,10 +48,15 @@ import { DialogLivrosComponent } from './livros/dialog-livros/dialog-livros.comp
     ReactiveFormsModule,
     CommonModule,
     DemoFlexyModule,
-    FormsModule,
     NgApexchartsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

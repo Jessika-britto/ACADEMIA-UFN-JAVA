@@ -11,15 +11,19 @@
           </span>
           <mat-form-field class="w-100 fs-16" appearance="outline">
             <mat-label>Nome</mat-label>
-            <input matInput type="text" formControlName="nome" placeholder="Entre com usuário">
+            <input matInput type="text" formControlName="firstName" placeholder="Entre com seu primeiro nome">
+          </mat-form-field>
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Sobrenome</mat-label>
+            <input matInput type="text" formControlName="lastName" placeholder="Entre com seu sobrenome">
           </mat-form-field>
           <mat-form-field class="w-100 fs-16" appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput type="text" formControlName="email" placeholder="Entre com usuário">
+            <input matInput type="text" formControlName="email" placeholder="Entre com email">
           </mat-form-field>
           <mat-form-field class="w-100 fs-16" appearance="outline">
             <mat-label>Senha</mat-label>
-            <input matInput type="password" formControlName="senha" placeholder="Enter your password">
+            <input matInput type="password" formControlName="password" placeholder="Entre com senha">
           </mat-form-field>
           <div class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16" role="alert" *ngIf="mensagem">
             <i-feather name="check-circle" class="text-success feather-base me-12"></i-feather>

@@ -23,6 +23,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CadastrarLivroComponent } from './cadastrar-livro/cadastrar-livro.component';
 import { LivrosComponent } from './livros/livros.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {
     path:"",
     component:FullComponent,
+    canActivate: [AuthGuard],
     children: [
       {path:"", redirectTo:"/home", pathMatch:"full"},
       {path:"usuarios", component: UsuariosComponent},
