@@ -3,9 +3,11 @@ package com.app.appbackend.controller;
 import com.app.appbackend.model.request.SignUpRequest;
 import com.app.appbackend.model.request.SigninRequest;
 import com.app.appbackend.model.response.JwtAuthenticationResponse;
+import com.app.appbackend.model.response.UserLoggedResponse;
 import com.app.appbackend.model.response.UsersResponse;
 import com.app.appbackend.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,5 +31,10 @@ public class AuthenticationController {
     @GetMapping("users")
     public ResponseEntity<List<UsersResponse>> usuariosCadastrados(){
         return  ResponseEntity.ok().body(authenticationService.usuariosCadastrados());
+    }
+
+    @GetMapping("usuario-logado")
+    public ResponseEntity<UserLoggedResponse> obterUsuarioLogado() {
+        return ResponseEntity.ok().body(authenticationService.obterUsuarioLogado());
     }
 }

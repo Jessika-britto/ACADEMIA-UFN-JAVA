@@ -1,3 +1,4 @@
+import { UserLogged } from './../../model/user-logged';
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
@@ -19,6 +20,7 @@ interface sidebarMenu {
 export class FullComponent {
 
   search: boolean = false;
+  user: UserLogged = new UserLogged();
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -31,6 +33,10 @@ export class FullComponent {
     private authService: AuthService,
     private router: Router
     ) { }
+
+    ngOnInit(): void {
+      this.loggedUser();
+    }
 
   routerActive: string = "activelink";
 
@@ -140,5 +146,14 @@ export class FullComponent {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  loggedUser(): void {
+    this.authService.getLoggedUser().subscribe((user: UserLogged) => {
+        this.user = user;
+    },
+    (erro) => {
+      console.error('Erro ao retorna usuário logado:', erro);
+    });
   }
 }

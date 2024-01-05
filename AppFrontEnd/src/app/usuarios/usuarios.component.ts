@@ -25,7 +25,6 @@ export class UsuariosComponent implements OnInit {
     this.authService.listUsers().subscribe(
       (usuarios: Array<Users>) => {
         if(usuarios != null) {
-          console.error('Retorna usuários:', usuarios);
           this.dataSource.data = usuarios;
         }
       },

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Credentials } from './model/credentials';
 import { Token } from './model/token';
+import { UserLogged } from './model/user-logged';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+  }
+
+  getLoggedUser(): Observable<UserLogged> {
+    return this.http.get<UserLogged>(`${this.baseUrl}/auth/usuario-logado`);
   }
 
 }
