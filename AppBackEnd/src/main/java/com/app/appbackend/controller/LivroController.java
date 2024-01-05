@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("api/v1")
 public class LivroController {
     @Autowired
     private LivroServiceImpl livroService;
