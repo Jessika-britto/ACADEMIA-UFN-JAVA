@@ -1,6 +1,5 @@
 package com.app.appbackend.model.response;
 
-import com.app.appbackend.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
