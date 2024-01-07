@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   declare loginForm: FormGroup;
+  senhaIncorreta = false;
 
   constructor(
     private authService: AuthService,
@@ -29,7 +30,7 @@ export class LoginComponent {
   inicializarFormulario() {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
@@ -38,11 +39,14 @@ export class LoginComponent {
       (res: Token) => {
         if(res != null) {
           localStorage.setItem('token', res.token);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/cadastrarLivro']);
         }
       },
       (erro) => {
-        console.error('Erro ao autenticar:', erro);
+        console.error('Erro ao autenticar:', erro.status);
+        if (erro.status === 403) {
+          this.loginForm.get('password')?.setErrors({ senhaIncorreta: true });
+        }
       }
     );
   }

@@ -25,25 +25,6 @@
           </li>
         </ul>
       </div>
-
-      <!-- <div class="m-8 pt-4">
-        <div class="buy-flexy ps-24 pe-24 mt-48 mb-48">
-          <div class="text-center">
-            <img src="assets/images/sidebar-buynow-bg.svg" class="img-fluid" alt="">
-            <div class="pt-24 pb-24 mt-8">
-              <p class="fw-bold fs-18 mb-16 pb-8">Get This for Free</p>
-              <ul>
-                <li class="mb-8">
-                  <a href="javascript:void(0)" mat-flat-button color="primary" class="fw-light w-100 fs-14">Download Free</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" mat-flat-button color="accent" class="w-100 fw-light fs-14">Check Pro</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
 
   </mat-sidenav>
@@ -55,9 +36,6 @@
       <button type="button" class="ms-4" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <i-feather name="menu" class="text-light-muted feather-base mt-n3"></i-feather>
-      </button>
-      <button mat-icon-button class="ms-4 me-4" (click)="search=!search">
-        <i-feather name="search" class="mt-n3 text-light-muted feather-base text-dark"></i-feather>
       </button>
       <div class="ms-auto">
         <button mat-button class="fs-16 pt-4 pb-4 ps-8 pe-8 text-light-muted d-flex align-items-center" [matMenuTriggerFor]="menu">
@@ -90,22 +68,10 @@
       </div>
     </div>
 
-    <p class="text-center pb-24 fs-16">© 2023 All rights reserved by <a
+    <p class="text-center pb-24 fs-16">© 2024 Todos os direitos reservados por <a
         href="https://www.livraria.com" target="_blank"
         class="text-indigo">livraria.com</a></p>
 
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
-
-<!-- Search Box -->
-<div *ngIf="search" class="search-section d-flex align-items-center">
-  <mat-form-field class="w-100" color="primary" >
-    <mat-label class="fs-16">Search Here</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <button mat-icon-button (click)="search=!search">
-    <i-feather name="x-circle" class="mt-n3 text-light-muted feather-base text-dark"></i-feather>
-  </button>
-</div>

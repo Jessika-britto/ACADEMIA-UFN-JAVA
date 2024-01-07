@@ -11,11 +11,26 @@
           <mat-form-field class="w-100 fs-16" appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput type="text" formControlName="email" placeholder="Entre com usuário">
+            <mat-error class="fs-12" *ngIf="loginForm.get('email')?.hasError('required')">
+              O email é obrigatório.
+            </mat-error>
+            <mat-error class="fs-12" *ngIf="loginForm.get('email')?.hasError('email')">
+              Email inválido.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="w-100 fs-16" appearance="outline">
             <mat-label>Senha</mat-label>
             <input matInput type="password" formControlName="password" placeholder="Enter your password">
+            <mat-error class="fs-12" *ngIf="loginForm.get('password')?.hasError('required')">
+              A senha é obrigatória.
+            </mat-error>
+            <mat-error class="fs-12" *ngIf="loginForm.get('password')?.hasError('minlength')">
+              A senha deve ter pelo menos 6 caracteres.
+            </mat-error>
+            <mat-error class="fs-12" *ngIf="loginForm.get('password')?.hasError('senhaIncorreta')">
+              Senha incorreta. Por favor, verifique novamente.
+            </mat-error>
           </mat-form-field>
 
           <button mat-raised-button class="w-100 me-8 mb-8 fw-normal" color="primary" [disabled]="loginForm.invalid" (click)="authentication()">Entrar</button>
