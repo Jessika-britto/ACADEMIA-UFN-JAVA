@@ -24,6 +24,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CadastrarLivroComponent } from './cadastrar-livro/cadastrar-livro.component';
 import { LivrosComponent } from './livros/livros.component';
 import { AuthGuard } from './auth.guard';
+import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
@@ -39,6 +40,8 @@ const routes: Routes = [
       {path:"usuarios", component: UsuariosComponent},
       {path:"cadastrarLivro", component: CadastrarLivroComponent},
       {path:"atualizarLivro/:id", component: CadastrarLivroComponent},
+      {path:"cadastrarUsuario", component: CadastrarUsuarioComponent},
+      {path:"atualizarUsuario/:id", component: CadastrarUsuarioComponent},
       {path:"livros", component: LivrosComponent},
       {path:"home", component:DashboardComponent},
       {path:"alerts", component:AlertsComponent},

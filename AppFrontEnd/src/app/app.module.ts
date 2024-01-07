@@ -23,6 +23,7 @@ import { CadastrarLivroComponent } from './cadastrar-livro/cadastrar-livro.compo
 import { LivrosComponent } from './livros/livros.component';
 import { DialogLivrosComponent } from './livros/dialog-livros/dialog-livros.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
+import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthInterceptorService } from './auth-interceptor.service';
     UsuariosComponent,
     CadastrarLivroComponent,
     LivrosComponent,
-    DialogLivrosComponent
+    DialogLivrosComponent,
+    CadastrarUsuarioComponent
   ],
   imports: [
     BrowserModule,

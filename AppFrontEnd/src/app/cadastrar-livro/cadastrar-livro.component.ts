@@ -60,9 +60,7 @@ export class CadastrarLivroComponent implements OnInit {
         const id = params.get('id');
         if (id !== null && id !== undefined) {
           this.id = parseInt(id, 10);
-          console.log('ID do Livro: ', this.id);
           this.livroService.obterLivroCadastrado(this.id).subscribe((livro: Livros) => {
-            console.log('Livro: ', livro);
               this.livroForm.patchValue(livro);
           });
         }

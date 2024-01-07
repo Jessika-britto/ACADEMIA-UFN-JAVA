@@ -36,4 +36,20 @@ export class AuthService {
     return this.http.get<UserLogged>(`${this.baseUrl}/auth/usuario-logado`);
   }
 
+  cadastrarUsuario(users: Users): Observable<Users> {
+    return this.http.post<Users>(`${this.baseUrl}/auth/cadastrarUsuario`, users);
+  }
+
+  obterUsuario(id: Number): Observable<Users> {
+    return this.http.get<Users>(`${this.baseUrl}/auth/usuario/${id}`);
+  }
+
+  atualizarUsuario(id: Number, users: Users): Observable<Users> {
+    return this.http.put<Users>(`${this.baseUrl}/auth/atualizarUsuario/${id}`, users);
+  }
+
+  removerUsuario(id: Number): Observable<Users> {
+    return this.http.delete<Users>(`${this.baseUrl}/auth/removerUsuario/${id}`);
+  }
+
 }

@@ -6,10 +6,17 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 
+enum Permissao {
+  Usuario = 'USER',
+  Admin = 'ADMIN'
+}
+
 interface sidebarMenu {
   link: string;
   icon: string;
   menu: string;
+  permissoes: Permissao[];
+  visible: boolean;
 }
 
 @Component({
@@ -45,16 +52,22 @@ export class FullComponent {
       link: "/usuarios",
       icon: "user",
       menu: "Usuarios",
+      permissoes: [Permissao.Admin],
+      visible: false
     },
     {
       link: "/cadastrarLivro",
       icon: "bookmark",
       menu: "Cadastrar",
+      permissoes: [Permissao.Usuario, Permissao.Admin],
+      visible: false
     },
     {
       link: "/livros",
       icon: "book",
       menu: "Livros",
+      permissoes: [Permissao.Usuario, Permissao.Admin],
+      visible: false
     }
     // {
     //   link: "/home",
@@ -151,9 +164,42 @@ export class FullComponent {
   loggedUser(): void {
     this.authService.getLoggedUser().subscribe((user: UserLogged) => {
         this.user = user;
+        this.checkPermissions();
     },
     (erro) => {
       console.error('Erro ao retorna usuário logado:', erro);
     });
+  }
+
+  checkPermissions(): void {
+    const isAdmin = this.hasAtLeastOneAdminPermission();
+
+    this.sidebarMenu.forEach(menu => {
+      if (menu.link === '/usuarios') {
+        menu.visible = isAdmin;
+      } else {
+        menu.visible = this.hasRequiredPermissions(menu.permissoes, isAdmin);
+      }
+    });
+  }
+
+  hasRequiredPermissions(requiredPermissions: Permissao[], isAdmin: boolean): boolean {
+    if (isAdmin) {
+      return true;
+    }
+
+    return this.user?.permissions?.some(p => requiredPermissions.includes(p as Permissao)) || false;
+  }
+
+  hasAtLeastOneAdminPermission(): boolean {
+    return this.user?.permissions?.includes(Permissao.Admin) || false;
+  }
+
+  editarPerfil() {
+    this.router.navigate(['/atualizarUsuario', this.user.id]);
+  }
+
+  get isAdmin() {
+    return this.user?.permissions?.includes(Permissao.Admin);
   }
 }

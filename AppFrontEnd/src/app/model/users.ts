@@ -3,6 +3,7 @@ export class Users {
   lastName: string;
   email: string;
   password: string;
+  role?: string;
 
   constructor(firstName: string, lastName: string, email: string, password: string) {
     this.firstName = firstName;

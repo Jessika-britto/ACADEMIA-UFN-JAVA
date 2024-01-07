@@ -1,15 +1,10 @@
 package com.app.appbackend.service.impl;
 
 import com.app.appbackend.entity.LivroEntity;
-import com.app.appbackend.entity.UsuarioEntity;
 import com.app.appbackend.model.request.LivroRequest;
-import com.app.appbackend.model.request.UsuarioRequest;
 import com.app.appbackend.model.response.LivroResponse;
-import com.app.appbackend.model.response.UsuarioResponse;
 import com.app.appbackend.repository.LivroRepository;
-import com.app.appbackend.repository.UsuarioRepository;
 import com.app.appbackend.service.LivroService;
-import com.app.appbackend.service.UsuarioService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

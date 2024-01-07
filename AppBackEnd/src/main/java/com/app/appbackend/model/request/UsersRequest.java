@@ -1,4 +1,4 @@
-package com.app.appbackend.model.response;
+package com.app.appbackend.model.request;
 
 import com.app.appbackend.entity.Role;
 import lombok.AllArgsConstructor;
@@ -10,8 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsersResponse {
-    private Long id;
+public class UsersRequest {
     private String firstName;
     private String lastName;
     private String email;

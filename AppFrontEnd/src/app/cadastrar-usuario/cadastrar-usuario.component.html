@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">{{ id ? 'Atualizar Usuário' : 'Cadastrar Usuário' }}</h4>
+    <form [formGroup]="usuarioForm">
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" formControlName="firstName" placeholder="Entre com nome">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput type="text" formControlName="lastName" placeholder="Entre com sobrenome">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email" placeholder="Entre com email">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Entre com senha">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Permissão</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="USER">Usuário</mat-option>
+          <mat-option value="ADMIN">Administrador</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16" role="alert" *ngIf="mensagem">
+        <i-feather name="check-circle" class="text-success feather-base me-12"></i-feather>
+        {{ id ? 'Usuário atualizado com sucesso!' : 'Usuário cadastrado com sucesso!' }}
+      </div>
+      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" [disabled]="usuarioForm.invalid" (click)="cadastraNovosUsuarios()" *ngIf="!id">Cadastrar Usuário</button>
+      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" [disabled]="usuarioForm.invalid" (click)="atualizarUsuarios()" *ngIf="id">Atualizar Usuário</button>
+    </form>
+  </div>
+</div>
